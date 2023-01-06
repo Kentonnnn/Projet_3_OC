@@ -4,9 +4,9 @@ import Foundation
 class Weapon {
     
     let name: String
-    let damage: String
+    let damage: Int
     
-    init(name: String, damage: String) {
+    init(name: String, damage: Int) {
         self.name   = name
         self.damage = damage
     }

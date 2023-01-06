@@ -1,8 +1,8 @@
 import Foundation
 
 // Note : Rajouter un heal pour le mage
-class MagicWand {
+class MagicWand: Weapon {
     init() {
-        super.init(damage: 5, name: "Magic Wand")
+        super.init(name: "Magic Wand", damage: 5)
     }
 }

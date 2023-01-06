@@ -1,8 +1,7 @@
 import Foundation
 
-// Create a colossus class
 class Magus: Character {
     init(name: String) {
-        super.init(name: name, weapon: MagicWand, lifePoint: 20)
+        super.init(characterType: "Magus", lifePoint: 50, weapon: MagicWand(), name: name)
     }
 }
