@@ -43,9 +43,9 @@ class TeamCreation {
     func displayMenuOfCharacters() {
         print("\n /////////////////////////////////////////////"
                     + "\n Add 3 characters as your team :"
-                    + "\n1. Warrior     - Life: 100   - Damage    : 10 pts"
-                    + "\n2. Magus       - Life:  60   - Heal        : 10 pts"
-                    + "\n3. Colossus    - Life: 130   - Damage    :  5 pts"
+                    + "\n1. Warrior     - Life: 70      - Damage      : 20 dmg"
+                    + "\n2. Magus       - Life: 50      - Heal        : 10 heal"
+                    + "\n3. Colossus    - Life: 100     - Damage      :  8 dmg"
                     + "\n /////////////////////////////////////////////")
     }
     
