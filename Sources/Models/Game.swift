@@ -3,33 +3,39 @@ import Foundation
 // Create a game class, with two players
 class Game {
     
+    let createTeam = TeamCreation()
+    
     func startGame() {
-        let teamCreation = TeamCreation()
+        displayMainMenu()
+    }
+    
+    
+    func displayMainMenu() {
         
-        var exitGame = false
+        print("\n /////////////////////////////////////////////"
+                    + "\n Welcome to the combat game !"
+                    + "\n1. Start new game !"
+                    + "\n2. Exit game."
+                    + "\n /////////////////////////////////////////////")
         
-        while !exitGame {
+        let menuChoice = readLine()
+        
+        switch menuChoice {
             
-            print("⚔️ WELCOME TO THE COMBAT GAME ⚔️")
+        case "1":
             print("1. Start new game !")
+            createTeam.teamCreations()
+            let newGame = Game()
+            newGame.startGame()
+            
+        case "2":
             print("2. Exit game.")
+            exit(0)
             
-            let menuChoice = readLine()
-            
-            switch menuChoice {
-            case "1":
-                print("You started a new game.")
-                let newGame = Game()
-                newGame.startGame()
-                
-            case "2":
-                print("Bye, and hope to see you again")
-                exit(0)
-                
-            default:
-                print("Invalid choice.")
-            }
+        default:
+            print("Invalid choice.")
         }
     }
+        
 }
-
+    
