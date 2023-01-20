@@ -25,8 +25,6 @@ class Game {
         case "1":
             print("1. Start new game !")
             createTeam.teamCreations()
-            let newGame = Game()
-            newGame.startGame()
             
         case "2":
             print("2. Exit game.")
