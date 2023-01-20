@@ -2,6 +2,6 @@ import Foundation
 
 class Colossus: Character {
     init(name: String) {
-        super.init(characterType: "Colossus", lifePoint: 100, weapon: ShieldBlow(), name: name)
+        super.init(characterType: "Colossus", name: name, lifePoint: 100, weapons: ShieldBlow())
     }
 }
