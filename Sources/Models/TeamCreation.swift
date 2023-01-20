@@ -8,27 +8,61 @@
 import Foundation
 
 class TeamCreation {
-    
+    var characters = [Character]()
+    var charactersName = [String]()
     var teams = [Team]()
+    var teamsName = ""
     
-    func teamCreations() {
-        for i in 0..<2 {
-            print("\n Player \(i + 1)")
-            if let team = teamCreation() {
+    
+    // TODO: Create two teams
+    func createTeams() {
+        for t in 0..<2 {
+            print("Player \(t + 1)")
+            if let team = createTeam() {
                 teams.append(team)
+                team.showCharacters()
             }
         }
     }
     
-    func teamCreation() -> Team? {
-        let team = Team(name: "")
+    // TODO: Create team
+    func createTeam() -> Team? {
+        let team = Team(name: uniqueName(teamsName: true))
         if let characters = createCharacters() {
             team.characters = characters
         }
-        
         return team
     }
     
+    // TODO: Create team name
+    func createPlayerName() {
+        teamsName = uniqueName(teamsName: true)
+    }
+    
+    // TODO: check and add unique name
+    func uniqueName(teamsName: Bool) -> String {
+        var characterName = ""
+        repeat {
+            if teamsName {
+                print("Enter your team's name :")
+            } else {
+                print("Enter the name of your character: ")
+            }
+            if let data = readLine() {
+                characterName = data
+                if charactersName.contains(characterName) {
+                    print("This name is already used.")
+                    characterName = ""
+                } else {
+                    charactersName.append(characterName)
+                }
+            }
+        }
+        while characterName == ""
+                return characterName
+    }
+    
+    // TODO: Create 3 characters
     func createCharacters() -> [Character]? {
         var characters = [Character]()
         for _ in 0..<3 {
@@ -36,50 +70,45 @@ class TeamCreation {
                 characters.append(character)
             }
         }
-        
         return characters
     }
     
     func displayMenuOfCharacters() {
-        print("\n /////////////////////////////////////////////"
-                    + "\n Add 3 characters as your team :"
-                    + "\n1. Warrior     - Life: 70      - Damage      : 20 dmg"
-                    + "\n2. Magus       - Life: 50      - Heal        : 10 heal"
-                    + "\n3. Colossus    - Life: 100     - Damage      :  8 dmg"
-                    + "\n /////////////////////////////////////////////")
+        print("""
+        ////////////////////////////////////////
+        Add 3 characters in your team :
+        1. Warrior:    Life: 70    / Damage: 20
+        2. Magus:      Life: 50    / Damage: 10
+        3. Colossus:   Life: 100   / Damage: 8
+        ////////////////////////////////////////
+""")
     }
     
     func createCharacter() -> Character? {
-            var choiceUser = 0
-            displayMenuOfCharacters()
+        displayMenuOfCharacters()
         
-        // J'ai trouvé ça sur internet mais besoin d'explication
-        repeat {
-            if let data = readLine() {
-                if let dataToInt = Int(data) {
-                    choiceUser = dataToInt
-                }
-            }
-        }
+        let userChoice = readLine()
+        let uniqueName = self.uniqueName(teamsName: false)
         
-        while choiceUser != 1 && choiceUser != 2 && choiceUser != 3; do { // Pourquoi un do ici ? Car le switch juste après ?
+        switch userChoice {
+        case "1":
+            let warrior = Warrior(name: uniqueName)
+            print("The warrior with name \(warrior.name) is add.")
+            return Warrior(name: uniqueName)
             
-            switch choiceUser {
-                
-            case 1:
-                print("You add a Warrior to your team")
-                
-            case 2:
-                print("You add a Magus to your team")
-                
-            case 3:
-                print("You add a Colossus to your team")
-                
-            default:
-                return nil
-            }
+        case "2":
+            let magus = Magus(name: uniqueName)
+            print("The magus with name \(magus.name) is add.")
+            return Magus(name: uniqueName)
+            
+        case "3":
+            let colossus = Colossus(name: uniqueName)
+            print("The colossus with name \(colossus.name) is add.")
+            return Colossus(name: uniqueName)
+            
+        default:
+            return nil
         }
-        return nil // Pourquoi je suis obligé de mettre un return ici ?
+        
     }
-    
 }
