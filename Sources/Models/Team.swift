@@ -17,7 +17,7 @@ class Team {
     
     // TODO: Function for show characters in team with descriptions
     func showCharacters() {
-        print("Team \(name) :")
+        print("\n Team \(name) :")
         for character in characters {
             character.characterDescription()
         }
