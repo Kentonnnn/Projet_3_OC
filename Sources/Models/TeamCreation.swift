@@ -46,12 +46,12 @@ class TeamCreation {
             if teamsName {
                 print("Enter your team's name :")
             } else {
-                print("Enter the name of your character: ")
+                print("\n Enter the name of your character: ")
             }
             if let data = readLine() {
                 characterName = data
                 if charactersName.contains(characterName) {
-                    print("This name is already used.")
+                    print("\n This name is already used.")
                     characterName = ""
                 } else {
                     charactersName.append(characterName)
@@ -77,9 +77,9 @@ class TeamCreation {
         print("""
         ////////////////////////////////////////
         Add 3 characters in your team :
-        1. Warrior:    Life: 70    / Damage: 20
-        2. Magus:      Life: 50    / Damage: 10
-        3. Colossus:   Life: 100   / Damage: 8
+        1. Warrior:    Life: 50    /  Damage: 25
+        2. Magus:      Life: 25    /  Heal: 10
+        3. Colossus:   Life: 25    /  Damage: 8
         ////////////////////////////////////////
 """)
     }
@@ -93,17 +93,17 @@ class TeamCreation {
         switch userChoice {
         case "1":
             let warrior = Warrior(name: uniqueName)
-            print("The warrior with name \(warrior.name) is add.")
+            print("\n The warrior with name \(warrior.name) is add.")
             return Warrior(name: uniqueName)
             
         case "2":
             let magus = Magus(name: uniqueName)
-            print("The magus with name \(magus.name) is add.")
+            print("\n The magus with name \(magus.name) is add.")
             return Magus(name: uniqueName)
             
         case "3":
             let colossus = Colossus(name: uniqueName)
-            print("The colossus with name \(colossus.name) is add.")
+            print("\n The colossus with name \(colossus.name) is add.")
             return Colossus(name: uniqueName)
             
         default:
