@@ -15,24 +15,30 @@ class Team {
         self.name = name
     }
     
-    // TODO: Function for show characters in team with descriptions
+    // Function for show characters in team with descriptions
     func showCharacters() {
-        print("\n Team \(name) :")
+        print("""
+              
+----------------------------------------------------------
+              
+                    🧑‍🤝‍🧑 Team \(name) :
+              
+""")
+        
         for character in characters {
             character.characterDescription()
         }
+        
+        print("""
+            
+----------------------------------------------------------
+""")
     }
     
-    // TODO: Character dead
+    // Character dead
     func characterIsDead() -> Bool {
-        var dead = false
-        for character in characters {
-            if character.lifePoint == 0 {
-                dead = true
-            } else {
-                return false
-            }
+        characters.allSatisfy {
+            currentCharacter in currentCharacter.lifePoint == 0
         }
-        return dead
     }
 }

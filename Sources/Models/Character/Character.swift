@@ -1,6 +1,5 @@
 import Foundation
 
-// Create a character class, who has 3 property (lifePoint, weapon, name)
 class Character {
     let characterType: String
     let name: String
@@ -14,25 +13,25 @@ class Character {
         self.weapons = weapons
     }
     
-    // TODO: Description of character
+    // Description of character
     func characterDescription() {
         // TODO: print
-        print(" " + characterType + " " + name + " : Life : \(lifePoint) - " + weapons.weaponName + " (Damage : \(weapons.weaponDamage) dmg)")
+        print(" " + characterType + " " + name + " : Life : \(lifePoint) - " + weapons.weaponName + " (Damage : \(weapons.weaponDamage)) - " + "(Heal : \(weapons.weaponHeal)) " )
     }
     
-    // TODO: Attack enemy
+    // Attack enemy
     func attack(characterAttack: Character) {
         characterAttack.lifePoint -= weapons.weaponDamage
         characterAttack.checkLifeCharacter()
     }
     
-    // TODO: Check the life of the character
+    // Check the life of the character
     func checkLifeCharacter() {
         if self.lifePoint <= 0 {
             self.lifePoint = 0
-            print("\(characterType) \(self.name) is dead.")
+            print("\n \(characterType) \(self.name) is dead.")
         } else {
-            print("\(name) as now \(lifePoint) health points.")
+            print("\n \(name) as now \(lifePoint) health points.")
         }
     }
 }

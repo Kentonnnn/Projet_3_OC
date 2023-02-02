@@ -1,6 +1,5 @@
 import Foundation
 
-// Create a weapon class
 class Weapon {
     
     let weaponName: String
