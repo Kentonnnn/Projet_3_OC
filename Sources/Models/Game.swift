@@ -3,8 +3,8 @@ import Foundation
 // Create a game class, with two players
 class Game {
     
-    let createTeam = TeamCreation()
-    var numberOfTurn = 0
+    private let createTeam = TeamCreation()
+    private var numberOfTurn = 0
     
     func startGame() {
         displayMainMenu()
