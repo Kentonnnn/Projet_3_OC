@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		CD43B58D295DD935003D7E67 /* Magus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43B581295DD934003D7E67 /* Magus.swift */; };
 		CD43B58E295DD935003D7E67 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43B582295DD934003D7E67 /* Game.swift */; };
-		CD43B58F295DD935003D7E67 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43B583295DD934003D7E67 /* Player.swift */; };
 		CD43B590295DD935003D7E67 /* Sword.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43B584295DD935003D7E67 /* Sword.swift */; };
 		CD43B591295DD935003D7E67 /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43B585295DD935003D7E67 /* Warrior.swift */; };
 		CD43B592295DD935003D7E67 /* MagicWand.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD43B586295DD935003D7E67 /* MagicWand.swift */; };
@@ -38,7 +37,6 @@
 		CD43B577295DD7E6003D7E67 /* OCP" */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "OCP\""; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD43B581295DD934003D7E67 /* Magus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Magus.swift; sourceTree = "<group>"; };
 		CD43B582295DD934003D7E67 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		CD43B583295DD934003D7E67 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		CD43B584295DD935003D7E67 /* Sword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sword.swift; sourceTree = "<group>"; };
 		CD43B585295DD935003D7E67 /* Warrior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
 		CD43B586295DD935003D7E67 /* MagicWand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicWand.swift; sourceTree = "<group>"; };
@@ -93,7 +91,6 @@
 				CD43B59C295DDA51003D7E67 /* Character */,
 				CD43B59B295DDA34003D7E67 /* Weapons */,
 				CD43B582295DD934003D7E67 /* Game.swift */,
-				CD43B583295DD934003D7E67 /* Player.swift */,
 				CDF09B032967A12B00F42F52 /* TeamCreation.swift */,
 				CD55A6612970FFFB003D3F7B /* Team.swift */,
 			);
@@ -192,7 +189,6 @@
 				CD43B597295DD935003D7E67 /* ShieldBlow.swift in Sources */,
 				CD43B590295DD935003D7E67 /* Sword.swift in Sources */,
 				CDF09B042967A13100F42F52 /* TeamCreation.swift in Sources */,
-				CD43B58F295DD935003D7E67 /* Player.swift in Sources */,
 				CD43B58E295DD935003D7E67 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
