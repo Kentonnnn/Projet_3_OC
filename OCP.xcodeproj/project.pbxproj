@@ -47,7 +47,6 @@
 		CD43B58A295DD935003D7E67 /* Weapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
 		CD43B58B295DD935003D7E67 /* ShieldBlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShieldBlow.swift; sourceTree = "<group>"; };
 		CD43B58C295DD935003D7E67 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		CD43B59D296352ED003D7E67 /* Projet3.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = Projet3.playground; path = ../../Documents/Projet_3_OC/Projet3.playground; sourceTree = "<group>"; };
 		CD55A6612970FFFB003D3F7B /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		CDF09B032967A12B00F42F52 /* TeamCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCreation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,7 +65,6 @@
 		CD43B56E295DD7E6003D7E67 = {
 			isa = PBXGroup;
 			children = (
-				CD43B59D296352ED003D7E67 /* Projet3.playground */,
 				CD43B599295DD9C8003D7E67 /* Sources */,
 				CD43B578295DD7E6003D7E67 /* Products */,
 			);
