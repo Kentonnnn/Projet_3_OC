@@ -2,6 +2,6 @@ import Foundation
 
 class ShieldBlow: Weapon {
     init() {
-        super.init(name: "Magic Blow", damage: 8)
+        super.init(weaponName: "🛡 Shield Blow", weaponDamage: 8, weaponHeal: 0)
     }
 }

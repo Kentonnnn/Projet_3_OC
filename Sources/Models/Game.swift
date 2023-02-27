@@ -3,33 +3,192 @@ import Foundation
 // Create a game class, with two players
 class Game {
     
+    private let createTeam = TeamCreation()
+    private var numberOfTurn = 0
+    
     func startGame() {
-        let teamCreation = TeamCreation()
+        displayMainMenu()
+        battleLoop()
+    }
+    
+    private func displayMainMenu() {
+        print("""
+
+        ////////////////////////////
+
+        Welcome to the combat game !
+
+        1. Start new game !
+        2. Exit game
+
+        ////////////////////////////
+
+""")
         
-        var exitGame = false
+        let menuChoice = readLine()
         
-        while !exitGame {
+        switch menuChoice {
             
-            print("⚔️ WELCOME TO THE COMBAT GAME ⚔️")
-            print("1. Start new game !")
-            print("2. Exit game.")
+        case "1":
+            print("\n 1. Start new game !")
+            startNewGame()
             
-            let menuChoice = readLine()
+        case "2":
+            print("\n 2. Exit game.")
+            exit(0)
             
-            switch menuChoice {
-            case "1":
-                print("You started a new game.")
-                let newGame = Game()
-                newGame.startGame()
+        default:
+            print("\n Invalid choice.")
+            startGame()
+        }
+    }
+    
+    // Resum characters in team before the fight
+    private func resumTeams() {
+        print("""
+            
+        
+        Here is a summary of the two teams before the confrontation :
+              
+        """)
+        
+        teamOne()
+        teamTwo()
+    }
+    
+
+    private func teamOne() {
+        createTeam.teams[0].showCharacters()
+    }
+    
+
+    private func teamTwo() {
+        createTeam.teams[1].showCharacters()
+    }
+    
+    private func startNewGame() {
+        createTeam.createTeams()
+        resumTeams()
+        battleLoop()
+    }
+    
+    // Choose a character in team for fight
+    private func playerChoose(message: String) -> Character {
+        var characterPlay: Character?
+        
+        while characterPlay == nil {
+            print("\n \(message)")
+            
+            if let userChoice = readLine() {
                 
-            case "2":
-                print("Bye, and hope to see you again")
-                exit(0)
+                switch userChoice {
+                    
+                case "1":
+                    characterPlay = createTeam.teams[0].characters[0]
+                    
+                case "2":
+                    characterPlay = createTeam.teams[0].characters[1]
+                    
+                case "3":
+                    characterPlay = createTeam.teams[0].characters[2]
+                    
+                default:
+                    print("\n 🛑 Invalid selection, please enter a valid character number.")
+                }
                 
-            default:
-                print("Invalid choice.")
+                if let chooseCharacter = characterPlay {
+                    if chooseCharacter.lifePoint <= 0 {
+                        print("\n Your character is dead.")
+                        characterPlay = nil
+                    }
+                }
             }
         }
+        return characterPlay!
+    }
+    
+
+    private func changeTeams() {
+        createTeam.teams.swapAt(0, 1)
+    }
+    
+    // Battle loop
+    private func battleLoop() {
+        print("\n ⚔️ Let the battle begin ! ⚔️")
+        repeat {
+            teamOne()
+            let myCharacter = playerChoose(message: "Choose a character in your team by typing : 1, 2, 3")
+
+            if let magus = myCharacter as? Magus {
+                teamOne()
+                let characterHeal = playerChoose(message: "Choose the ally to care for by typing : 1, 2, 3")
+                magus.heal(characterHeal: characterHeal)
+                changeTeams()
+
+            } else {
+                teamTwo()
+                changeTeams()
+                let characterAttack = playerChoose(message: "\n Choose the enemy by typing : 1, 2, 3")
+                myCharacter.attack(characterAttack: characterAttack)
+                numberOfTurn += 1
+                print("\n number of turns : \(numberOfTurn)")
+            }
+        } while endGame()
+    }
+        
+        
+    // Function for end the game when all enemies are dead
+    private func endGame() -> Bool {
+            let teamDead = false
+            
+            for i in 0..<createTeam.teams.count {
+                let teamOne = createTeam.teams[i]
+                let teamTwo = createTeam.teams[i + 1]
+                
+                if teamOne.characterIsDead() {
+                    messageWinner(teamsName: teamTwo.name)
+                    stats()
+                    exitGame()
+                    return teamDead == true
+                } else if teamTwo.characterIsDead() {
+                    messageWinner(teamsName: teamOne.name)
+                    stats()
+                    exitGame()
+                    return teamDead == true
+                } else {
+                    return teamDead == false
+                }
+            }
+            return teamDead
+        }
+    
+    // Message Winner
+    private func messageWinner(teamsName: String) {
+        print("\n Congratulation team \(teamsName) you are the winner 🏆")
+    }
+    
+    // Stats turn number
+    private func stats() {
+        print("""
+
+              ////////////////////
+              - Game statistics -
+              ///////////////////
+""")
+        print("\n ⏳ Number of turns total : \(numberOfTurn)")
+        print("""
+            
+            Here is the end summary of the teams 🧑‍🤝‍🧑 :
+""")
+        teamOne()
+        teamTwo()
+        
+        print("""
+            ➡️ End of the game, back to the main menu.
+""")
     }
 }
 
+    private func exitGame() {
+        exit(0)
+    }
