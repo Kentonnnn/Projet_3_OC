@@ -11,7 +11,7 @@ class Game {
         battleLoop()
     }
     
-    func displayMainMenu() {
+    private func displayMainMenu() {
         print("""
 
         ////////////////////////////
@@ -44,7 +44,7 @@ class Game {
     }
     
     // Resum characters in team before the fight
-    func resumTeams() {
+    private func resumTeams() {
         print("""
             
         
@@ -57,23 +57,23 @@ class Game {
     }
     
 
-    func teamOne() {
+    private func teamOne() {
         createTeam.teams[0].showCharacters()
     }
     
 
-    func teamTwo() {
+    private func teamTwo() {
         createTeam.teams[1].showCharacters()
     }
     
-    func startNewGame() {
+    private func startNewGame() {
         createTeam.createTeams()
         resumTeams()
         battleLoop()
     }
     
     // Choose a character in team for fight
-    func playerChoose(message: String) -> Character {
+    private func playerChoose(message: String) -> Character {
         var characterPlay: Character?
         
         while characterPlay == nil {
@@ -108,12 +108,12 @@ class Game {
     }
     
 
-    func changeTeams() {
+    private func changeTeams() {
         createTeam.teams.swapAt(0, 1)
     }
     
     // Battle loop
-    func battleLoop() {
+    private func battleLoop() {
         print("\n ⚔️ Let the battle begin ! ⚔️")
         repeat {
             teamOne()
@@ -138,7 +138,7 @@ class Game {
         
         
     // Function for end the game when all enemies are dead
-        func endGame() -> Bool {
+    private func endGame() -> Bool {
             let teamDead = false
             
             for i in 0..<createTeam.teams.count {
@@ -163,12 +163,12 @@ class Game {
         }
     
     // Message Winner
-    func messageWinner(teamsName: String) {
+    private func messageWinner(teamsName: String) {
         print("\n Congratulation team \(teamsName) you are the winner 🏆")
     }
     
     // Stats turn number
-    func stats() {
+    private func stats() {
         print("""
 
               ////////////////////
@@ -189,6 +189,6 @@ class Game {
     }
 }
 
-func exitGame() {
-    exit(0)
-}
+    private func exitGame() {
+        exit(0)
+    }
