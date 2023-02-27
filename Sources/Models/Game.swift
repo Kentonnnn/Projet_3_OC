@@ -39,6 +39,7 @@ class Game {
             
         default:
             print("\n Invalid choice.")
+            startGame()
         }
     }
     
@@ -147,12 +148,12 @@ class Game {
                 if teamOne.characterIsDead() {
                     messageWinner(teamsName: teamTwo.name)
                     stats()
-                    startGame()
+                    exitGame()
                     return teamDead == true
                 } else if teamTwo.characterIsDead() {
                     messageWinner(teamsName: teamOne.name)
                     stats()
-                    startGame()
+                    exitGame()
                     return teamDead == true
                 } else {
                     return teamDead == false
@@ -188,3 +189,6 @@ class Game {
     }
 }
 
+func exitGame() {
+    exit(0)
+}
