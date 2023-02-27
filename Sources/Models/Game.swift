@@ -3,7 +3,7 @@ import Foundation
 // Create a game class, with two players
 class Game {
     
-    private let createTeam = TeamCreation()
+    private var createTeam = TeamCreation()
     private var numberOfTurn = 0
     
     func startGame() {
@@ -67,7 +67,9 @@ class Game {
     }
     
     private func startNewGame() {
+        createTeam = TeamCreation()
         createTeam.createTeams()
+        numberOfTurn = 0
         resumTeams()
         battleLoop()
     }
@@ -148,12 +150,12 @@ class Game {
                 if teamOne.characterIsDead() {
                     messageWinner(teamsName: teamTwo.name)
                     stats()
-                    exitGame()
+                    startGame()
                     return teamDead == true
                 } else if teamTwo.characterIsDead() {
                     messageWinner(teamsName: teamOne.name)
                     stats()
-                    exitGame()
+                    startGame()
                     return teamDead == true
                 } else {
                     return teamDead == false
@@ -189,6 +191,3 @@ class Game {
     }
 }
 
-    private func exitGame() {
-        exit(0)
-    }
